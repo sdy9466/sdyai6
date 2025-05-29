@@ -213,6 +213,7 @@ with st.sidebar:
             unsafe_allow_html=True
         )
 
+    image_base64 = get_image_base64("jiqi.png")
     st.image("./jiqi.png", caption="大黄", use_container_width=True)
     st.title("✨ 系统设置")
 
@@ -309,13 +310,7 @@ with st.sidebar:
     if st.button("🗑️ 清空对话历史", key="clear_conversation_button"):
         st.session_state.messages = [st.session_state.messages[0]]
         st.session_state.memory.clear()
-    if st.button("🚀 重新初始化", key="reinitialize_button"):
-        st.session_state.clear()
-        # 重置主题和模型状态
-        st.session_state.theme = "light"
-        st.session_state.selected_model = "gpt-4o-mini"
-        st.session_state.force_refresh = False
-        apply_theme()
+
 
 
 # 强制刷新逻辑 - 使用隐藏按钮
