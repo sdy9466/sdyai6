@@ -213,7 +213,7 @@ with st.sidebar:
             unsafe_allow_html=True
         )
 
-    st.image("jiqi.png", caption="大黄", use_container_width=True)
+    st.image("./jiqi.png", caption="大黄", use_container_width=True)
     st.title("✨ 系统设置")
 
     # API密钥输入
@@ -222,7 +222,7 @@ with st.sidebar:
         "请输入OpenAI API密钥：",
         type="password",
         placeholder="hk-xxxxxxxxxxxxxxxxxxxx",
-        value=st.session_state.api_key
+        # value=st.session_state.api_key
     )
     if api_key:
         st.session_state.api_key = api_key
