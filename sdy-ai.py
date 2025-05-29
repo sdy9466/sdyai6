@@ -177,17 +177,18 @@ with st.sidebar:
             st.error(f"无法加载背景图片: {str(e)}")
             return None
 
-    # 获取背景图和机器人图的Base64编码
-    bg_image_base64 = get_image_base64("科幻1.png")
-    robot_image_base64 = get_image_base64("jiqi.png")
 
-    if bg_image_base64:
+    # 获取科幻.jpg的Base64编码
+    image_base64 = get_image_base64("科幻1.png")
+
+
+    if image_base64:
         # 添加侧边栏背景图片
         st.markdown(
             f"""
                 <style>
                 [data-testid="stSidebar"] {{
-                    background-image: url("data:image/jpg;base64,{bg_image_base64}");
+                    background-image: url("data:image/jpg;base64,{image_base64}");
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -212,23 +213,7 @@ with st.sidebar:
             unsafe_allow_html=True
         )
 
-    # 使用Base64编码显示机器人图片
-    if robot_image_base64:
-        st.markdown(
-            f"""
-            <div style="text-align: center;">
-                <img src="data:image/png;base64,{robot_image_base64}" 
-                        alt="大黄" 
-                        style="max-width: 100%; border-radius: 4px;" />
-                <p style="font-weight: bold;">大黄</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    else:
-        # 如果无法加载图片，显示默认内容
-        st.info("无法加载机器人图片，使用默认显示")
-        st.image("https://picsum.photos/400/200?random=robot", caption="大黄", use_container_width=True)
+    st.image("jiqi.png", caption="大黄", use_container_width=True)
     st.title("✨ 系统设置")
 
     # API密钥输入
